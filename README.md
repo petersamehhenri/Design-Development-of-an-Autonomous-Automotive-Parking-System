@@ -1,0 +1,2 @@
+# Design-Development-of-an-Autonomous-Automotive-Parking-System
+This graduation project enables autonomous parallel and perpendicular parking using ultrasonic sensors and the STM32F103C8 Blue Pill microcontroller (ARM Cortex M3). It ensures anonymous vehicle identification, real-time monitoring, and showcases expertise in microcontroller programming, sensor integration, and motor control managed by an RTOS.
