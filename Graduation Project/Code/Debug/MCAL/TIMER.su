@@ -1,0 +1,7 @@
+TIMER.c:23:6:MCAL_PWM_Init	32	static
+TIMER.c:168:6:delay	40	static
+TIMER.c:235:10:TIME_CALCULATION	24	static
+TIMER.c:265:10:MCAL_COUNTER	24	static
+TIMER.c:298:6:TIM2_IRQHandler	4	static
+TIMER.c:306:6:TIM3_IRQHandler	4	static
+TIMER.c:311:6:TIM4_IRQHandler	4	static
