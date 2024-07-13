@@ -1,0 +1,92 @@
+%ENG:Ayman Hamdy Salem
+%ENG:Kareem Abdelkader Mohamed
+%youssef yaakob saad
+%--------------------------- Car Considration ---------------------------
+L_Car   = 30.0;                 % Car Lengh
+W_Car   = 12.0;                 % Car width
+L_WB    = 18.0;                 % Wheel base
+Lf      = 5.0;                  % Front overhang
+Lb      = 7.0;                  % Rear overhang
+Phi_max = 40.0*pi/180.0;        % Steering angle
+R_min = L_WB / tan(Phi_max);    % Minimum radius turn
+Kb      = W_Car / L_WB;         % Towing vehicle's wheelbase and crosbases
+%------------------------------------------------------------------------
+
+%-------------------------- Parking Considration ------------------------
+d_SC = sqrt((R_min+W_Car/2)^2 + Lb^2) - R_min - W_Car/2; % side clearance
+d_FC = sqrt((L_WB+Lf)^2 + (R_min+W_Car/2)^2);            % front clearance
+HS = W_Car + d_SC;                                       % parking width
+LS = sqrt(d_FC^2-(R_min+W_Car/2+d_SC-HS)^2)+Lb ;         % parking lengh
+% X parking coordinate
+Xp = [-(1.0+Lb ) -(1.0+Lb ) (L_WB+Lf+1.0) (L_WB+Lf+1.0) -(1.0+Lb)];
+% Y parking coordinate
+Yp = [-(d_SC+W_Car/2) (d_SC+W_Car/2) (d_SC+W_Car/2) -(d_SC+W_Car/2) -(d_SC+W_Car/2)];
+%------------------------------------------------------------------------
+
+%------------------- car front and rear side points from r --------------
+X_ar = -Lb;                    % car rear side point (a)
+X_br = L_WB + Lf;              % car front side point (b)
+%------------------------------------------------------------------------
+
+%----------------- Starting point considration --------------------------
+S = LS;                                                                     % Horizontal coordinate
+d_OC = (R_min-W_Car/2) - sqrt((R_min-W_Car/2)^2 - (S-LS+Lb)^2 );            % Obstacle clearance
+H = W_Car + d_OC;                                                           % Vertical coordinate
+%------------------------------------------------------------------------
+
+%------------------ Path considration -----------------------------------
+k = (S*(H-2*R_min) + sqrt(4*(S^2+H^2)*R_min^2 - 16*H*R_min^3)) / (S^2 - 4*R_min^2);
+m = R_min*(1.0 - sqrt(1.0 + k^2));
+xf1 = S - (k*R_min)/sqrt(1+k^2);
+xf2 = k*R_min/sqrt(1+k^2);
+Rc = 0.0;
+Xv = S:-0.01:Rc;
+n = size(Xv,2);
+%------------------------------------------------------------------------
+
+%----------------------- Car body coordinate ----------------------------
+X_ib = [S-Lb S-Lb S+L_WB+Lf S+L_WB+Lf S-Lb];
+Y_ib = [H-W_Car/2 H+W_Car/2 H+W_Car/2 H-W_Car/2 H-W_Car/2];
+X_fb = [-Lb -Lb L_WB+Lf L_WB+Lf -Lb];
+Y_fb = [-W_Car/2 W_Car/2 W_Car/2 -W_Car/2 -W_Car/2];
+
+Yrv = [];
+for i = 1:n
+    if Xv(i)<= S && Xv(i)>= xf1
+        Y = (H-R_min) + sqrt(R_min^2 - (Xv(i)-S)^2);
+    elseif Xv(i)< xf1 && Xv(i)>= xf2
+        Y = k * Xv(i) + m;
+    else 
+        Y = R_min - sqrt(R_min^2 - Xv(i)^2);
+    end
+    Yrv = [Yrv;Y];
+end
+
+Xu  = Xv + Lb;
+Xav = Xu + X_ar;
+Yu  = Yrv + W_Car/2;
+Yav = Yu - W_Car/2;
+Xd  = Xv + Lb;
+Yd  =  Yrv - W_Car/2;
+%------------------------------------------------------------------------
+%------------------------------plotting----------------------------------
+figure
+plot(X_ib,Y_ib,'r--');
+hold on
+plot(X_fb,Y_fb,'b--');
+hold on 
+plot(Xav,Yav,'k');
+hold on
+plot(Xu,Yu,'k--');
+hold on
+plot(Xd,Yd,'k--');
+hold on
+plot(Xp,Yp,'-k')
+
+
+
+
+
+
+
+
