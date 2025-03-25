@@ -2,7 +2,7 @@
  * GPIO_DRIVER.h
  *
  *  Created on: Sep 21, 2022
- *      Author: Kareem Abelkader
+ *     
  */
 
 #ifndef INC_GPIO_DRIVER_H_
