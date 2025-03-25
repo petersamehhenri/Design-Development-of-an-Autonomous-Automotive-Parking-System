@@ -2,7 +2,7 @@
  * stm32f103c6_ISR_DRIVER.h
  *
  *  Created on: Sep 27, 2022
- *      Author: Kareem Abelkader
+ *    
  */
 
 #ifndef STM32F103C6_DRIVERS_INC_STM32F103C6_ISR_DRIVER_H_
