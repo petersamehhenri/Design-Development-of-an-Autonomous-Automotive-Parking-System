@@ -2,7 +2,7 @@
  * I2C.h
  *
  *  Created on: Feb 13, 2024
- *      Author: KARIM
+ *     
  */
 
 #ifndef I2C_H_
