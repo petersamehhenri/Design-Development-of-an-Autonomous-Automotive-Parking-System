@@ -2,7 +2,7 @@
  * UART.c
  *
  *  Created on: Feb 13, 2024
- *      Author: KARIM
+ *    
  */
 
 /******************************
