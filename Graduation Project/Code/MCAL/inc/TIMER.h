@@ -2,7 +2,7 @@
  * STM32_TIMERS_DRIVER.h
  *
  *  Created on: Nov 3, 2022
- *      Author: Kareem Abelkader
+ *  
  */
 
 #ifndef INC_STM32_TIMERS_DRIVER_H_
