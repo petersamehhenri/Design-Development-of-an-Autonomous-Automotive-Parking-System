@@ -2,7 +2,7 @@
  * ULTRASONIC.c
  *
  *  Created on: Feb 16, 2024
- *      Author: omar
+ *      
  */
 #include "ULTRASONIC.h"
 
