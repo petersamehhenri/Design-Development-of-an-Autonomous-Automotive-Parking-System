@@ -2,7 +2,7 @@
  * RCC.h
  *
  *  Created on: Jan 27, 2024
- *      Author: Kareem Abelkader
+ *     
  */
 
 #ifndef RCC_H_
