@@ -2,7 +2,7 @@
  * WDGT.h
  *
  *  Created on: Nov 25, 2023
- *      Author: Kareem Abelkader
+ * 
  */
 
 #ifndef WDGT_H_
