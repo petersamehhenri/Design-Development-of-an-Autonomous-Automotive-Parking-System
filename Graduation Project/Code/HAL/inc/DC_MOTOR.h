@@ -2,7 +2,7 @@
  * DC_MOTOR.h
  *
  *  Created on: Feb 13, 2024
- *      Author: KARIM
+ *      
  */
 
 #ifndef DC_MOTOR_DC_MOTOR_H_
