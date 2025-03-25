@@ -1,8 +1,6 @@
 /*
  * STM32F103x8.h
  *
- * Master Embedded System Diploma
- * Eng. Kareem Abelkader
  */
 
 #ifndef STM32F103X8_H_
